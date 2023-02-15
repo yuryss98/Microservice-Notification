@@ -1,0 +1,113 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:mocha/recommended",
+    "airbnb-base",
+    "airbnb-typescript/base"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "overrides": [
+    {
+      "files": ["tests/**/*.spec.ts"],
+      "rules": {
+        "prefer-arrow-callback": "off",
+        "func-names": "off",
+        "max-lines-per-function": "off"
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "mocha",
+    "sonarjs"
+  ],
+  "rules": {
+    "no-underscore-dangle": "off",
+    "no-console": "warn",
+    "camelcase": "warn",
+    "arrow-parens": [ 
+      2,
+      "always"
+    ],
+    "max-params": [
+      "error",
+      4
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
+    "max-lines": [
+      "error",
+      250
+    ],
+    "max-lines-per-function": [
+      "error",
+      {
+        "max": 20,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-len": [
+      "error",
+      100,
+      {
+        "ignoreComments": true
+      }
+    ],
+    "complexity": [
+      "error",
+      5
+    ],
+    "sonarjs/no-one-iteration-loop": [
+      "error"
+    ],
+    "sonarjs/no-identical-expressions": [
+      "error"
+    ],
+    "sonarjs/no-use-of-empty-return-value": [
+      "error"
+    ],
+    "sonarjs/no-extra-arguments": [
+      "error"
+    ],
+    "sonarjs/no-identical-conditions": [
+      "error"
+    ],
+    "sonarjs/no-duplicate-string": [
+      "error"
+    ],
+    "sonarjs/no-duplicated-branches": [
+      "error"
+    ],
+    "sonarjs/no-identical-functions": [
+      "error"
+    ],
+    "sonarjs/no-redundant-boolean": [
+      "error"
+    ],
+    "sonarjs/no-unused-collection": [
+      "error"
+    ],
+    "sonarjs/prefer-object-literal": [
+      "error"
+    ],
+    "sonarjs/prefer-single-boolean-return": [
+      "error"
+    ],
+    "sonarjs/no-inverted-boolean-check": [
+      "error"
+    ]
+  }
+}
