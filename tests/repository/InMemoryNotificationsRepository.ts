@@ -19,4 +19,12 @@ export default class InMemoryNotificationsRepository implements NotificationRepo
 
     this.notifications[notificationIndex] = notification;
   }
+
+  async countManyByRecipientId(recipientId: number) {
+    const countNotifications = this.notifications.filter(
+      (notification) => notification.recipientId === recipientId,
+    ).length;
+
+    return countNotifications;
+  }
 }
