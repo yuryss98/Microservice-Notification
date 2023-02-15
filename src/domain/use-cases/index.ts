@@ -3,6 +3,7 @@ import CancelNotification from './Cancel-notification';
 import CountRecipientNotifications from './Count-recipient-notifications';
 import GetRecipientNotifications from './Get-recipient-notifications';
 import ReadNotification from './Read-notification';
+import UnreadNotification from './Unread-notification';
 
 export {
   SendNotification,
@@ -10,4 +11,5 @@ export {
   CountRecipientNotifications,
   GetRecipientNotifications,
   ReadNotification,
+  UnreadNotification,
 };
