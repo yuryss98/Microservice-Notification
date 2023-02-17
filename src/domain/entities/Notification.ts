@@ -8,9 +8,9 @@ export default class Notification {
 
   private _category: string;
 
-  private _readAt?: Date | null;
+  private _readAt: Date | null;
 
-  private _canceledAt?: Date | null;
+  private _canceledAt: Date | null;
 
   private _createdAt: Date;
 
