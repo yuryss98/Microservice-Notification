@@ -16,7 +16,7 @@ export default class Content {
     const isContentValid = this.content.length >= 5 && this.content.length <= 240;
 
     if (!isContentValid) {
-      throw new CustomError('Length Required', 'Content length error');
+      throw new CustomError('LENGTH_REQUIRED', 'Content length error');
     }
   }
 }

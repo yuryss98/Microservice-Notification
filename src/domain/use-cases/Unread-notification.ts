@@ -14,7 +14,7 @@ export default class UnreadNotification {
     );
 
     if (!notification) {
-      throw new CustomError('Not Found', 'Notification Not Found');
+      throw new CustomError('NOT_FOUND', 'Notification Not Found');
     }
 
     notification.unread();
