@@ -33,7 +33,7 @@ describe('Send notification', function () {
         content: 'erro',
       });
     } catch (error) {
-      expect((error as CustomError).name).to.equal('Length Required');
+      expect((error as CustomError).name).to.equal('LENGTH_REQUIRED');
       expect((error as CustomError).message).to.equal('Content length error');
     }
   });

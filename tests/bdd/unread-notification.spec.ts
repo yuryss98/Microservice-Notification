@@ -31,7 +31,7 @@ describe('Unread notification', function () {
       const invalidId = 9999;
       await unReadNotification.execute({ notificationId: invalidId });
     } catch (error) {
-      expect((error as CustomError).name).to.equal('Not Found');
+      expect((error as CustomError).name).to.equal('NOT_FOUND');
       expect((error as CustomError).message).to.equal('Notification Not Found');
     }
   });
