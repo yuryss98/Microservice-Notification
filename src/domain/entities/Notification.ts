@@ -49,6 +49,10 @@ export default class Notification {
     return this._recipientId;
   }
 
+  get category() {
+    return this._category;
+  }
+
   get id() {
     return this._id;
   }
@@ -59,5 +63,13 @@ export default class Notification {
 
   get canceledAt() {
     return this._canceledAt;
+  }
+
+  get content() {
+    return this._content;
+  }
+
+  get createdAt() {
+    return this._createdAt;
   }
 }
