@@ -12,24 +12,33 @@ describe('Unread notification', function () {
 
   it('Should be able to mark notification as unread', async function () {
     const recipientId = '10';
-    const newNotifiaction = makeNotification(recipientId);
+    const notificationId = '20';
+    const newNotifiaction = makeNotification({
+      recipientId,
+      id: notificationId,
+    });
 
     await notificationRepository.create(newNotifiaction);
 
     await unReadNotification.execute({ notificationId: newNotifiaction.id });
 
     expect(notificationRepository.notifications[0].readAt).to.deep.equal(null);
+    expect(notificationRepository.notifications[0].id).to.deep.equal(notificationId);
   });
 
   it('Should throw an error when not finding a notification', async function () {
     const recipientId = '10';
-    const newNotifiaction = makeNotification(recipientId);
+    const notificationId = '20';
+    const newNotifiaction = makeNotification({
+      recipientId,
+      id: notificationId,
+    });
 
     await notificationRepository.create(newNotifiaction);
 
     try {
-      const invalidId = '9999';
-      await unReadNotification.execute({ notificationId: invalidId });
+      const invalidId = '21';
+      expect(await unReadNotification.execute({ notificationId: invalidId })).to.throw(Error);
     } catch (error) {
       expect((error as CustomError).name).to.equal('NOT_FOUND');
       expect((error as CustomError).message).to.equal('Notification Not Found');

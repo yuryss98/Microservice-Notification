@@ -2,6 +2,7 @@ import * as chai from 'chai';
 import { GetRecipientNotifications } from '../../src/domain/use-cases';
 import InMemoryNotificationsRepository from '../repository/InMemoryNotificationsRepository';
 import makeNotification from '../factory/notification-factory';
+import Content from '../../src/domain/entities/Content';
 
 const { expect } = chai;
 
@@ -11,9 +12,17 @@ describe('Get All notifications by recipient id', function () {
 
   it('Should return all notifications from a recipient', async function () {
     const recipientId = '10';
-    await notificationRepository.create(makeNotification(recipientId));
+
+    await notificationRepository.create(makeNotification({
+      recipientId,
+    }));
+
     await notificationRepository.create(
-      makeNotification(recipientId, 'Você foi aceito no processo seletivo', 'profissional'),
+      makeNotification({
+        recipientId,
+        content: new Content('Você foi aceito no processo seletivo'),
+        category: 'profissional',
+      }),
     );
 
     const getNotificationsByRecipientId = await notificationRepository

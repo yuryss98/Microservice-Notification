@@ -11,9 +11,15 @@ describe('Count notifications by recipient id', function () {
 
   it('Should count the number of notifications from a recipient', async function () {
     const recipientId = '10';
-    await notificationRepository.create(makeNotification(recipientId));
-    await notificationRepository.create(makeNotification(recipientId));
-    await notificationRepository.create(makeNotification(recipientId));
+    await notificationRepository.create(makeNotification({
+      recipientId,
+    }));
+    await notificationRepository.create(makeNotification({
+      recipientId,
+    }));
+    await notificationRepository.create(makeNotification({
+      recipientId,
+    }));
 
     const result = await countAllRecipientNotifications.execute({ recipientId });
 

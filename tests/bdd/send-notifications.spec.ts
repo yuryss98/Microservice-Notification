@@ -11,7 +11,7 @@ describe('Send notification', function () {
 
     const sendNotification = new SendNotification(notificationRepository);
 
-    const { notification } = await sendNotification.execute({
+    const notification = await sendNotification.execute({
       recipientId: '10',
       category: 'social',
       content: 'This is a notification',
@@ -27,11 +27,11 @@ describe('Send notification', function () {
     const sendNotification = new SendNotification(notificationRepository);
 
     try {
-      await sendNotification.execute({
+      expect(await sendNotification.execute({
         recipientId: '10',
         category: 'social',
         content: 'erro',
-      });
+      })).to.throw(Error);
     } catch (error) {
       expect((error as CustomError).name).to.equal('LENGTH_REQUIRED');
       expect((error as CustomError).message).to.equal('Content length error');
@@ -44,11 +44,11 @@ describe('Send notification', function () {
     const sendNotification = new SendNotification(notificationRepository);
 
     try {
-      await sendNotification.execute({
+      expect(await sendNotification.execute({
         recipientId: '10',
         category: '',
         content: 'This is a notification',
-      });
+      })).to.throw(Error);
     } catch (error) {
       expect((error as CustomError).name).to.equal('Bad Request');
       expect((error as CustomError).message).to.equal('Missing category or recipientId fields');
