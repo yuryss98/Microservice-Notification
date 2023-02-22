@@ -19,8 +19,10 @@ export default class SendNotification {
       recipientId: request.recipientId,
     });
 
-    await this.notificationsRepository.create(notification);
+    const notificationId = await this.notificationsRepository.create(notification);
 
-    return { notification };
+    notification.id = notificationId;
+
+    return notification;
   }
 }
