@@ -6,6 +6,7 @@ export default class InMemoryNotificationsRepository implements NotificationRepo
 
   async create(notification: Notification) {
     this.notifications.push(notification);
+    return notification.id;
   }
 
   async findById(notificationId: string) {
