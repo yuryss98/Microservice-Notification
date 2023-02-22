@@ -8,7 +8,7 @@ export default class InMemoryNotificationsRepository implements NotificationRepo
     this.notifications.push(notification);
   }
 
-  async findById(notificationId: number) {
+  async findById(notificationId: string) {
     const notificaiton = this.notifications.find(({ id }) => id === notificationId);
 
     return notificaiton;
@@ -20,7 +20,7 @@ export default class InMemoryNotificationsRepository implements NotificationRepo
     this.notifications[notificationIndex] = notification;
   }
 
-  async countManyByRecipientId(recipientId: number) {
+  async countManyByRecipientId(recipientId: string) {
     const countNotifications = this.notifications.filter(
       (notification) => notification.recipientId === recipientId,
     ).length;
@@ -28,7 +28,7 @@ export default class InMemoryNotificationsRepository implements NotificationRepo
     return countNotifications;
   }
 
-  async findManyByRecipientId(recipientId: number) {
+  async findManyByRecipientId(recipientId: string) {
     const notificaiton = this.notifications.filter(
       (notification) => notification.recipientId === recipientId,
     );
