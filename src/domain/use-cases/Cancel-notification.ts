@@ -2,7 +2,7 @@ import CustomError from '../error/CustomError';
 import NotificationsRepository from '../repositories/NotificationRepository';
 
 interface CancelNotificationRequest {
-  notificationId: number;
+  notificationId: string;
 }
 
 export default class CancelNotification {

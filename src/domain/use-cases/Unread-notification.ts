@@ -2,7 +2,7 @@ import CustomError from '../error/CustomError';
 import NotificationRepository from '../repositories/NotificationRepository';
 
 interface UnreadNotificationRequest {
-  notificationId: number;
+  notificationId: string;
 }
 
 export default class UnreadNotification {

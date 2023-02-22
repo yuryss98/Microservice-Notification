@@ -1,7 +1,7 @@
 import NotificationRepository from '../repositories/NotificationRepository';
 
 interface CountNotificationsRequest {
-  recipientId: number;
+  recipientId: string;
 }
 
 export default class CountRecipientNotifications {
