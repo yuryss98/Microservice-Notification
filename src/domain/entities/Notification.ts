@@ -1,56 +1,58 @@
 import CustomError from '../error/CustomError';
 import Content from './Content';
 
+export interface NotificationProps {
+  recipientId: string;
+  content: Content;
+  category: string;
+  readAt?: Date | null;
+  canceledAt?: Date | null;
+}
+
 export default class Notification {
-  private _recipientId: number;
-
-  private _content: Content;
-
-  private _category: string;
-
-  private _readAt: Date | null;
-
-  private _canceledAt: Date | null;
+  private props: NotificationProps;
 
   private _createdAt: Date;
 
-  private _id: number;
+  private _id: string;
 
-  constructor(content: Content, category: string, recipientId: number) {
-    this._content = content;
-    this._category = category;
-    this._recipientId = recipientId;
-    this._readAt = null;
-    this._canceledAt = null;
-    this._createdAt = new Date();
-    this._id = 0;
+  constructor(
+    props: NotificationProps,
+    createdAt?: Date,
+    id?: string,
+  ) {
+    this._id = id ?? '';
+    this._createdAt = createdAt ?? new Date();
+    this.props = {
+      ...props,
+    };
     this.validateInputsValues();
   }
 
   validateInputsValues() {
-    if (!this._category.length || !this._recipientId) {
+    if (!this.props.category.length || !this.props.recipientId) {
       throw new CustomError('Bad Request', 'Missing category or recipientId fields');
     }
   }
 
   public cancel() {
-    this._canceledAt = new Date();
+    this.props.canceledAt = new Date();
   }
 
   public read() {
-    this._readAt = new Date();
+    this.props.readAt = new Date();
   }
 
   public unread() {
-    this._readAt = null;
+    this.props.readAt = null;
   }
 
   get recipientId() {
-    return this._recipientId;
+    return this.props.recipientId;
   }
 
   get category() {
-    return this._category;
+    return this.props.category;
   }
 
   get id() {
@@ -58,15 +60,15 @@ export default class Notification {
   }
 
   get readAt() {
-    return this._readAt;
+    return this.props.readAt;
   }
 
   get canceledAt() {
-    return this._canceledAt;
+    return this.props.canceledAt;
   }
 
   get content() {
-    return this._content;
+    return this.props.content;
   }
 
   get createdAt() {
