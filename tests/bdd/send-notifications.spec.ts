@@ -12,7 +12,7 @@ describe('Send notification', function () {
     const sendNotification = new SendNotification(notificationRepository);
 
     const { notification } = await sendNotification.execute({
-      recipientId: 10,
+      recipientId: '10',
       category: 'social',
       content: 'This is a notification',
     });
@@ -28,7 +28,7 @@ describe('Send notification', function () {
 
     try {
       await sendNotification.execute({
-        recipientId: 10,
+        recipientId: '10',
         category: 'social',
         content: 'erro',
       });
@@ -45,7 +45,7 @@ describe('Send notification', function () {
 
     try {
       await sendNotification.execute({
-        recipientId: 10,
+        recipientId: '10',
         category: '',
         content: 'This is a notification',
       });

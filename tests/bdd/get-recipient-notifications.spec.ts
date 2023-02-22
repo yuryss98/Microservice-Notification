@@ -10,7 +10,7 @@ describe('Get All notifications by recipient id', function () {
   const getAllRecipientNotifications = new GetRecipientNotifications(notificationRepository);
 
   it('Should return all notifications from a recipient', async function () {
-    const recipientId = 10;
+    const recipientId = '10';
     await notificationRepository.create(makeNotification(recipientId));
     await notificationRepository.create(
       makeNotification(recipientId, 'Você foi aceito no processo seletivo', 'profissional'),

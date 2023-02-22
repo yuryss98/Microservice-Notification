@@ -11,7 +11,7 @@ describe('Cancel notification', function () {
   const cancelNotification = new CancelNotification(notificationRepository);
 
   it('Should be able to cancel notificaiton', async function () {
-    const recipientId = 10;
+    const recipientId = '10';
     const newNotifiaction = makeNotification(recipientId);
 
     await notificationRepository.create(newNotifiaction);
@@ -22,13 +22,13 @@ describe('Cancel notification', function () {
   });
 
   it('Should throw an error when not finding a notification', async function () {
-    const recipientId = 10;
+    const recipientId = '10';
     const newNotifiaction = makeNotification(recipientId);
 
     await notificationRepository.create(newNotifiaction);
 
     try {
-      const invalidId = 9999;
+      const invalidId = '9999';
       await cancelNotification.execute({ notificationId: invalidId });
     } catch (error) {
       expect((error as CustomError).name).to.equal('NOT_FOUND');
