@@ -25,6 +25,8 @@ export default class Notification {
     this._createdAt = createdAt ?? new Date();
     this.props = {
       ...props,
+      readAt: props.readAt ?? null,
+      canceledAt: props.canceledAt ?? null,
     };
     this.validateInputsValues();
   }
@@ -57,6 +59,10 @@ export default class Notification {
 
   get id() {
     return this._id;
+  }
+
+  set id(id: string) {
+    this._id = id;
   }
 
   get readAt() {
