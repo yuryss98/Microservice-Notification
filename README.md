@@ -75,6 +75,8 @@ Para iniciar a aplicação em modo de produção:
 ## A partir desse ponto ja pode testar os endpoints. Todos os endpoints vao ser acessiveis a partir de http://localhost:3005/notifications
 
 
+<img src="./docs/microservice-notification.gif" alt="gif"/>
+
 <details close>
   <summary>POST /send/recipientId</summary>
   -- O método POST em /send/recipientId onde recipientId é o id de um destinatario, é responsavel pelo envio de uma notificação, para esse
