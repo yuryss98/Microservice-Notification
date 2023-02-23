@@ -2,8 +2,10 @@
   "name": "microservice-notification",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/application/server.js",
   "scripts": {
+    "prestart": "npx tsc",
+    "start": "node .",
     "dev": "tsnd src/application/server.ts",
     "lint": "eslint src/**/*.ts && eslint tests/**/*.spec.ts",
     "test": "mocha --require ts-node/register tests/**/*.spec.ts --exit"
