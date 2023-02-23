@@ -2,7 +2,7 @@
 
 ---
 
-Neste projeto, foi desenvolvido um microserviço de notificações. Nele, você pode enviar uma notificação, cancelá-la, marcá-la como lida, marcá-la como não lida, ver quantas notificações um destinatário tem e ver todas as notificações de um destinatário.
+Neste projeto, foi desenvolvido um microsserviço de notificações. Nele, você pode enviar uma notificação, cancelá-la, marcá-la como lida, marcá-la como não lida, ver quantas notificações um destinatário tem e ver todas as notificações de um destinatário.
 
 Meu objetivo neste projeto era criar uma aplicação escalável e de fácil manutenção. Para isso, construí o projeto em Programação Orientada a Objetos (POO), seguindo os princípios do SOLID e aplicando o Domain-Driven Design (DDD) e a arquitetura hexagonal. Também utilizei os padrões de design "Adapter" e "Factory Method". Para garantir que a aplicação estava funcionando corretamente desde o início do desenvolvimento, apliquei o conceito de Behavior-Driven Development (BDD) para testar e validar o software.
 
