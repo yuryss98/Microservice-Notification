@@ -33,7 +33,7 @@ export default class Notification {
 
   validateInputsValues() {
     if (!this.props.category.length || !this.props.recipientId) {
-      throw new CustomError('Bad Request', 'Missing category or recipientId fields');
+      throw new CustomError('BAD_REQUEST', 'Missing category or recipientId fields');
     }
   }
 
