@@ -50,7 +50,7 @@ describe('Send notification', function () {
         content: 'This is a notification',
       })).to.throw(Error);
     } catch (error) {
-      expect((error as CustomError).name).to.equal('Bad Request');
+      expect((error as CustomError).name).to.equal('BAD_REQUEST');
       expect((error as CustomError).message).to.equal('Missing category or recipientId fields');
     }
   });
