@@ -22,7 +22,7 @@ Meu objetivo neste projeto era criar uma aplicação escalável e de fácil manu
 * Docker;
 
 
-## Execute localmente:
+## Execute localmente (é preciso ter o docker instalado):
 
 Clone o projeto
 ```bash
@@ -35,13 +35,8 @@ Vá para o diretório do projeto:
 cd Microservice-Notification
 ```
 
-Entre no Vs Code para verificar os arquivos usando o atalho no terminal:
-```bash
-code .
-```
 
-
-Abra O terminal e execute os comandos:
+Execute os seguintes comandos:
 ```bash
   docker compose up -d
 ```
